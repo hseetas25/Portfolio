@@ -1,0 +1,129 @@
+<div class="container mt-4">
+    <div class="row align-items-center">
+        <div class="col-sm-4 my-2 login-card container text-center">
+            <h5 class="mb-4"><b>Get in Touch...</b></h5>
+            <hr>
+            <div class="row">
+                <div>
+                    <label class="fw-bold">
+                        <img src="../../../../assets/phone-solid.svg" height="15px">
+                        Phone 
+                    </label>
+                    <br>
+                    <button class="btn btn-primary mt-2">+91 8309567528</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div >
+                    <label class="fw-bold">
+                        <img src="../../../../assets/envelope-solid.svg" height="15px">
+                        Email
+                    </label>
+                    <br>
+                    <button class="btn btn-primary mt-2">{{this.email}}</button>
+                </div>
+            </div>
+            <br>
+            <div class="row mb-2">
+                <div>
+                    <label class="fw-bold">
+                        <img src="../../../../assets/location-arrow-solid.svg" height="15px">
+                        Location
+                    </label>
+                    <br>
+                    <button class="btn btn-primary mt-2">Hyderabad, TG, India</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+            <div class="login-card container">
+                <form [formGroup]="contactUsForm">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 form-group">
+                            <label class="fw-bold">
+                                Name
+                                <span class="mandatory"> *</span>
+                            </label>
+                            <img src="../../../../assets/font-solid.svg" class="mx-2" height="15px">
+                            <span *ngFor="let validation of validationMessages.name">
+                                <small class="text-danger error" *ngIf="contactUsForm.get('name').hasError(validation.type) && (contactUsForm.get('name').dirty || contactUsForm.get('name').touched || isFormSubmitted)">
+                                        {{validation.message}}
+                                </small>
+                            </span>
+                            <input type="text"
+                                class="form-control"
+                                formControlName="name"
+                                autocomplete="off"
+                                [class.border-danger]="contactUsForm.get('name').invalid && (contactUsForm.get('name').dirty || contactUsForm.get('name').touched || isFormSubmitted)"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 form-group">
+                            <label class="fw-bold">
+                                Email
+                                <span class="mandatory"> *</span>
+                                <img src="../../../../assets/envelope-solid.svg" class="mx-2" height="15px">
+                            </label>
+                            <span *ngFor="let validation of validationMessages.email">
+                                <small class="text-danger error" *ngIf="contactUsForm.get('email').hasError(validation.type) && (contactUsForm.get('email').dirty || contactUsForm.get('email').touched || isFormSubmitted)">
+                                        {{validation.message}}
+                                </small>
+                            </span>
+                            <input type="text"
+                                class="form-control"
+                                formControlName="email"
+                                autocomplete="off"
+                                [class.border-danger]="contactUsForm.get('email').invalid && (contactUsForm.get('email').dirty || contactUsForm.get('email').touched || isFormSubmitted)"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 form-group">
+                            <label class="fw-bold">
+                                Subject
+                                <span class="mandatory"> *</span>
+                            </label>
+                            <img src="../../../../assets/grip-lines-solid.svg" class="mx-2" height="15px">
+                            <span *ngFor="let validation of validationMessages.subject">
+                                <small class="text-danger error" *ngIf="contactUsForm.get('subject').hasError(validation.type) && (contactUsForm.get('subject').dirty || contactUsForm.get('subject').touched || isFormSubmitted)">
+                                        {{validation.message}}
+                                </small>
+                            </span>
+                            <input type="text"
+                                class="form-control"
+                                formControlName="subject"
+                                autocomplete="off"
+                                [class.border-danger]="contactUsForm.get('subject').invalid && (contactUsForm.get('subject').dirty || contactUsForm.get('subject').touched || isFormSubmitted)"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 form-group">
+                            <label class="fw-bold">
+                                Message
+                                <span class="mandatory"> *</span>
+                            </label>
+                            <img src="../../../../assets/comments-solid.svg" class="mx-2" height="15px">
+                            <span *ngFor="let validation of validationMessages.message">
+                                <small class="text-danger error" *ngIf="contactUsForm.get('message').hasError(validation.type) && (contactUsForm.get('message').dirty || contactUsForm.get('message').touched || isFormSubmitted)">
+                                        {{validation.message}}
+                                </small>
+                            </span>
+                            <input type="text"
+                                class="form-control"
+                                formControlName="message"
+                                autocomplete="off"
+                                [class.border-danger]="contactUsForm.get('message').invalid && (contactUsForm.get('message').dirty || contactUsForm.get('message').touched || isFormSubmitted)"/>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary me-4" (click)="submitContactUsForm()">Submit Request <img src="../../../../assets/telegram.svg" height="20px"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

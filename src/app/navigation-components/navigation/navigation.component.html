@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-light sticky-top border-bottom">
+    <div class="container">
+        <img src="../../../assets/logo.jpg" height="40px" alt="" class="d-inline-block pe-2">
+        <a class="navbar-brand" href="#">
+            <b style="font-size: small; padding: 5%; background-color: #cff4f4; letter-spacing: 5px;">SATEESH <b style="background-color: #66cccc; padding: 4%;"> .BALAGA </b></b>
+        </a>
+       
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" routerLink="home" routerLinkActive="active" aria-current="page">Profile</a>
+                <a class="nav-link" routerLink="experience" routerLinkActive="active">Experience</a>
+                <a class="nav-link" routerLink="skills" routerLinkActive="active">Skills</a>
+                <a class="nav-link" routerLink="projects" routerLinkActive="active">Projects</a>
+                <a class="nav-link" *ngIf='!isLoggedIn' routerLink="login" routerLinkActive="active">Login</a>
+                <a class="nav-link" *ngIf='isLoggedIn' routerLink="requests-page" routerLinkActive="active">Requests</a>
+                <a class="nav-link" routerLink="contact-me" routerLinkActive="active">Contact Me</a>
+                <button class="btn btn-primary" *ngIf='isLoggedIn' routerLinkActive="active" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>

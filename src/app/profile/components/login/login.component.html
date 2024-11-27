@@ -1,0 +1,57 @@
+<div *ngIf='!isLoggedIn' class="container mt-4">
+    <div class="row p-2 d-flex align-items-center">
+        <div class="col-md-4 p-2 text-center">
+            <img src="../../../../assets/login.jpg" height="400px" width="400px" alt="login">
+        </div>
+        <div class="col-md-2 p-2"></div>
+        <div class="col-md-6 p-2">
+            <div class="login-card container">
+                <form [formGroup]="loginForm">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 form-group">
+                            <label class="fw-bold">
+                                Email
+                                <span class="mandatory"> *</span>
+                                <img src="../../../../assets/envelope-solid.svg" class="mx-2" height="15px">
+                            </label>
+                            <span *ngFor="let validation of validationMessages.email" class="mx-2">
+                                <small class="text-danger error" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched || isFormSubmitted)">
+                                        {{validation.message}}
+                                </small>
+                            </span>
+                            <input type="text"
+                                class="form-control"
+                                formControlName="email"
+                                autocomplete="off"
+                                [class.border-danger]="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched || isFormSubmitted)"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 form-group">
+                            <label class="fw-bold">
+                                Password
+                                <span class="mandatory"> *</span>
+                                <img src="../../../../assets/key-solid.svg" class="mx-2" height="15px">
+                            </label>
+                            <span *ngFor="let validation of validationMessages.password" class="mx-2">
+                                <small class="text-danger error" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched || isFormSubmitted)">
+                                        {{validation.message}}
+                                </small>
+                            </span>
+                            <input type="password"
+                                class="form-control"
+                                formControlName="password"
+                                autocomplete="off"
+                                [class.border-danger]="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched || isFormSubmitted)"/>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary my-2 me-4" (click)="submitLoginForm()">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div *ngIf ='isLoggedIn' class="container mt-4">
+    <div *ngIf="requests.length">
+        <div class="row my-5">
+            <div class="col-sm-6 col-md-8 d-flex align-items-center">
+            </div>
+            <div class="col-sm-6 col-md-4 d-flex flex-column justify-content-center">
+                <div class="form-group w-100">
+                    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchWord">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div *ngFor="let request of requests | search: searchWord">
+                    <div class="fw-card my-3">
+                        <span class="badge bg-primary me-2 mb-2">{{request.name}}</span>
+                        <span class="badge bg-primary me-2 mb-2">{{request.email}}</span>
+                        <span class="badge bg-primary me-2 mb-2">{{request.date}}</span>
+                        <br>
+                        <p class="mb-0 fw-bold">{{request.subject}}</p>
+                        <p class="mb-0">{{request.message}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!requests.length">
+        <h3 class="text-center mt-5"><b>No Requests available</b></h3>
+    </div>
+</div>

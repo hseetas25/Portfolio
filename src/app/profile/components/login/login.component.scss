@@ -1,0 +1,31 @@
+.login-card {
+    border-radius: 16px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border: 1px solid var(--theme-25);
+    transition: all 0.3s;
+    box-shadow: 0 8px 16px var(--theme-25);
+}
+
+.form-group {
+    padding-bottom: 1rem;
+}
+
+.form-group > label {
+    padding-bottom: 0.5rem;
+}
+
+.mandatory {
+    color: red;
+}
+
+h6 {
+    background-color: #66cccc;
+    padding: 5px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+small {
+    font-size: x-small;
+}
